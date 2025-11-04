@@ -1,0 +1,157 @@
+/* Supported By Section */
+.supported-by-section {
+  background-color: #0b111e;
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.supported-by-section h2 {
+  margin-bottom: 60px;
+}
+
+/* Logo Slider Container */
+.logo-slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+/* Fade Mask Effect on Edges */
+.logo-slider-container::before,
+.logo-slider-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.logo-slider-container::before {
+  left: 0;
+  background: linear-gradient(to right, #0b111e 0%, transparent 100%);
+}
+
+.logo-slider-container::after {
+  right: 0;
+  background: linear-gradient(to left, #0b111e 0%, transparent 100%);
+}
+
+/* Logo Slider Track */
+.logo-slider-track {
+  display: flex;
+  gap: 80px;
+  animation: scroll-logos 30s linear infinite;
+  width: fit-content;
+}
+
+/* Pause animation on hover */
+.logo-slider-track:hover {
+  animation-play-state: paused;
+}
+
+/* Infinite Scroll Animation */
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Logo Item */
+.logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 120px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.logo-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.logo-item:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.logo-item:hover img {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .logo-slider-track {
+    gap: 60px;
+    animation-duration: 25s;
+  }
+
+  .logo-item {
+    width: 180px;
+    height: 100px;
+  }
+
+  .logo-slider-container::before,
+  .logo-slider-container::after {
+    width: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-slider-track {
+    gap: 40px;
+    animation-duration: 20s;
+  }
+
+  .logo-item {
+    width: 150px;
+    height: 90px;
+    padding: 15px;
+  }
+
+  .logo-slider-container::before,
+  .logo-slider-container::after {
+    width: 60px;
+  }
+
+  .supported-by-section {
+    padding: 40px 0;
+  }
+
+  .supported-by-section h2 {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-slider-track {
+    gap: 30px;
+    animation-duration: 15s;
+  }
+
+  .logo-item {
+    width: 120px;
+    height: 80px;
+    padding: 12px;
+  }
+
+  .logo-slider-container::before,
+  .logo-slider-container::after {
+    width: 40px;
+  }
+}

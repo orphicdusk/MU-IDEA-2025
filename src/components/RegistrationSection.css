@@ -1,0 +1,58 @@
+.registration-section {
+  background-color: #151e30;
+}
+
+.registration-card-wrapper {
+  grid-template-columns: 1fr;
+  max-width: 600px;
+}
+
+.registration-qr-card {
+  text-align: center;
+  padding: 40px;
+  border-color: #00FFFF;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+.registration-qr-card h3 {
+  font-size: 1.8em;
+  color: #007bff;
+}
+
+.qr-code-image {
+  width: 200px;
+  height: 200px;
+  margin: 30px auto;
+  display: block;
+  border: 5px solid #00FFFF;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.registration-qr-card p {
+  margin-bottom: 30px;
+  color: #a0a0a0;
+}
+
+.register-link-btn {
+  display: block;
+  width: 80%;
+  max-width: 350px;
+  margin: 30px auto 0;
+  background-color: #00FFFF;
+  color: #0b111e;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.register-link-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px #00FFFF;
+}

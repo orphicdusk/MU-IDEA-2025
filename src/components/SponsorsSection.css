@@ -1,0 +1,74 @@
+.sponsors-grid.two-col-sponsors-grid {
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 40px 0;
+}
+
+.uniform-sponsor-card {
+  text-align: center;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 300px;
+  background-color: #151e30;
+  border: 3px solid #007bff;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+}
+
+.uniform-sponsor-card img {
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  filter: grayscale(50%);
+  transition: filter 0.3s ease;
+}
+
+.uniform-sponsor-card h3 {
+  font-size: 1.8em;
+  font-weight: 900;
+  margin-bottom: 10px;
+  color: #00FFFF;
+}
+
+.uniform-sponsor-card p {
+  font-size: 1.1em;
+  color: #a0a0a0;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+.uniform-sponsor-card:hover {
+  border-color: #00FFFF;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+  transform: translateY(-5px) scale(1.01);
+}
+
+.uniform-sponsor-card:hover img {
+  filter: grayscale(0%);
+}
+
+.view-details-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #00FFFF;
+  color: #0b111e;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.view-details-btn:hover {
+  background-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1000px) {
+  .sponsors-grid.two-col-sponsors-grid {
+    grid-template-columns: 1fr;
+  }
+}

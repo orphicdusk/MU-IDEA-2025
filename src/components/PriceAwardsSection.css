@@ -1,0 +1,113 @@
+.price-awards-section {
+  background-color: #0b111e;
+}
+
+.two-col-grid {
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  max-width: 800px;
+}
+
+.prize-card,
+.awards-card {
+  background: #151e30;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  border-color: #00FFFF;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center align items */
+  text-align: center; /* Center align text */
+}
+
+/* Gradient label styling */
+.gradient-label {
+  margin-top: 10px;
+}
+
+.gradient-label .animated-gradient-text {
+  margin: 0 auto; /* Center the gradient text */
+  justify-content: center; /* Center content */
+}
+
+/* Awards content wrapper */
+.awards-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Trophy and count row - horizontal layout */
+.trophy-count-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Trophy icon styling */
+.trophy-icon {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.trophy-icon svg {
+  filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.awards-card:hover .trophy-icon svg {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.prize-text {
+  font-size: 3em;
+  font-weight: 900;
+  color: #007bff;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+
+.count-number {
+  font-size: 3em;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.subtext-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.section-subtext {
+  text-align: center;
+  color: #a0a0a0;
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+.subtext-wrapper .animated-gradient-text {
+  margin: 0 auto !important;
+  justify-content: center !important;
+}
+
+@media (max-width: 768px) {
+  .four-col-grid,
+  .two-col-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}

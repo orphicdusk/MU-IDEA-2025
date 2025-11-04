@@ -1,0 +1,64 @@
+:root {
+  /* Based on the PDF blue/cyan theme */
+  --color-primary: #00FFFF; /* Cyan/Teal Glow Accent */
+  --color-secondary: #007bff; /* Secondary Blue Accent */
+  --color-dark-bg: #0b111e; /* Extremely Deep Dark Blue/Black */
+  --color-card-bg: #151e30; /* Slightly Lighter Dark for Cards/Sections */
+  --color-text-light: #ffffff;
+  --color-text-dim: #a0a0a0;
+  --navbar-height: 70px;
+  --card-width-members: 300px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-light);
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.main-content {
+  padding-top: 0;
+}
+
+.grid-container {
+  display: grid;
+  gap: 30px;
+  justify-content: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: var(--color-card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+}
+
+/* Font Awesome Icons */
+.fas {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}

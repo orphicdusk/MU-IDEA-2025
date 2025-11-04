@@ -1,0 +1,389 @@
+.leader-carousel-section {
+  background-color: #0b111e;
+  padding: 60px 20px;
+  overflow: hidden;
+}
+
+/* 3D Carousel Container */
+.leader-carousel-section .carousel-3d-container {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 0 100px;
+}
+
+.leader-carousel-section .carousel-3d-wrapper {
+  perspective: 2000px;
+  perspective-origin: center center;
+  width: 100%;
+  height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leader-carousel-section .carousel-3d-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+/* 3D Profile Card */
+.leader-carousel-section .profile-card-3d {
+  position: absolute;
+  width: 320px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
+
+/* Position-based transformations */
+.leader-carousel-section .profile-card-3d {
+  transform: 
+    translateX(calc(var(--position) * 400px))
+    translateZ(calc(-200px * var(--abs-position)))
+    rotateY(calc(var(--position) * -25deg))
+    scale(calc(1 - var(--abs-position) * 0.2));
+  opacity: calc(1 - var(--abs-position) * 0.3);
+  z-index: calc(10 - var(--abs-position));
+  pointer-events: none;
+}
+
+/* Active (center) card */
+.leader-carousel-section .profile-card-3d.active {
+  transform: 
+    translateX(0)
+    translateZ(100px)
+    rotateY(0deg)
+    scale(1.1);
+  opacity: 1;
+  z-index: 20;
+  pointer-events: auto;
+  box-shadow: 0 20px 60px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
+}
+
+/* Hidden cards (too far) */
+.leader-carousel-section .profile-card-3d.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Hover effect on active card */
+.leader-carousel-section .profile-card-3d.active:hover {
+  transform: 
+    translateX(0)
+    translateZ(120px)
+    rotateY(0deg)
+    scale(1.12);
+  box-shadow: 0 25px 70px rgba(0, 255, 255, 0.5), 0 0 50px rgba(0, 255, 255, 0.3);
+}
+
+/* Navigation Buttons */
+.leader-carousel-section .carousel-3d-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #00FFFF;
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 1.4em;
+  cursor: pointer;
+  z-index: 30;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leader-carousel-section .carousel-3d-btn:hover:not(:disabled) {
+  background: rgba(0, 255, 255, 0.4);
+  border-color: #00FFFF;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.leader-carousel-section .carousel-3d-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.leader-carousel-section .carousel-3d-btn.prev {
+  left: 20px;
+}
+
+.leader-carousel-section .carousel-3d-btn.next {
+  right: 20px;
+}
+
+/* Navigation Dots */
+.leader-carousel-section .carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 30;
+}
+
+.leader-carousel-section .carousel-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(0, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.leader-carousel-section .carousel-dots .dot:hover:not(:disabled) {
+  background: rgba(0, 255, 255, 0.6);
+  transform: scale(1.2);
+}
+
+.leader-carousel-section .carousel-dots .dot.active {
+  background: #00FFFF;
+  border-color: #00FFFF;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  transform: scale(1.3);
+}
+
+.leader-carousel-section .carousel-dots .dot:disabled {
+  cursor: not-allowed;
+}
+
+.leader-carousel-section .banner {
+  height: 120px;
+  background: linear-gradient(to right, #3498db, #2c3e50);
+  position: relative;
+}
+
+.leader-carousel-section .banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+.leader-carousel-section .linkedin-icon {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background: #0077b5;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  text-decoration: none;
+}
+
+.leader-carousel-section .linkedin-icon:hover {
+  background: #005885;
+  transform: scale(1.1);
+}
+
+.leader-carousel-section .profile-img-wrapper {
+  position: absolute;
+  bottom: -55px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.leader-carousel-section .profile-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 5px solid white;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background: #f5f5f5;
+}
+
+.leader-carousel-section .profile-content {
+  padding: 70px 25px 25px;
+  text-align: center;
+}
+
+.leader-carousel-section .profile-content .name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000 !important;
+  margin-bottom: 5px;
+}
+
+.leader-carousel-section .position {
+  font-size: 16px;
+  color: #3498db;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.leader-carousel-section .description {
+  color: #666;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .leader-carousel-section .profile-card-3d {
+    transform: 
+      translateX(calc(var(--position) * 350px))
+      translateZ(calc(-150px * var(--abs-position)))
+      rotateY(calc(var(--position) * -20deg))
+      scale(calc(1 - var(--abs-position) * 0.15));
+  }
+
+  .leader-carousel-section .carousel-3d-wrapper {
+    height: 520px;
+  }
+}
+
+@media (max-width: 992px) {
+  .leader-carousel-section .profile-card-3d {
+    width: 280px;
+    transform: 
+      translateX(calc(var(--position) * 320px))
+      translateZ(calc(-120px * var(--abs-position)))
+      rotateY(calc(var(--position) * -18deg))
+      scale(calc(1 - var(--abs-position) * 0.12));
+  }
+
+  .leader-carousel-section .carousel-3d-wrapper {
+    height: 500px;
+  }
+
+  .leader-carousel-section .carousel-3d-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 768px) {
+  .leader-carousel-section .carousel-3d-container {
+    padding: 40px 0 80px;
+  }
+
+  .leader-carousel-section .carousel-3d-wrapper {
+    height: 480px;
+    perspective: 1500px;
+  }
+
+  .leader-carousel-section .profile-card-3d {
+    width: 260px;
+    transform: 
+      translateX(calc(var(--position) * 280px))
+      translateZ(calc(-80px * var(--abs-position)))
+      rotateY(calc(var(--position) * -15deg))
+      scale(calc(1 - var(--abs-position) * 0.1));
+  }
+
+  .leader-carousel-section .profile-card-3d.active {
+    transform: 
+      translateX(0)
+      translateZ(80px)
+      rotateY(0deg)
+      scale(1.05);
+  }
+
+  .leader-carousel-section .carousel-3d-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1em;
+  }
+
+  .leader-carousel-section .carousel-3d-btn.prev {
+    left: 10px;
+  }
+
+  .leader-carousel-section .carousel-3d-btn.next {
+    right: 10px;
+  }
+
+  .leader-carousel-section .carousel-dots .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .leader-carousel-section .carousel-3d-wrapper {
+    height: 460px;
+  }
+
+  .leader-carousel-section .profile-card-3d {
+    width: 240px;
+    transform: 
+      translateX(calc(var(--position) * 260px))
+      translateZ(calc(-60px * var(--abs-position)))
+      rotateY(calc(var(--position) * -12deg))
+      scale(calc(1 - var(--abs-position) * 0.08));
+  }
+
+  .leader-carousel-section .profile-card-3d.active {
+    transform: 
+      translateX(0)
+      translateZ(60px)
+      rotateY(0deg)
+      scale(1.0);
+  }
+
+  .leader-carousel-section .carousel-3d-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1em;
+  }
+
+  .leader-carousel-section .carousel-dots {
+    bottom: 10px;
+  }
+
+  .leader-carousel-section .carousel-dots .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .leader-carousel-section .profile-content {
+    padding: 65px 20px 20px;
+  }
+
+  .leader-carousel-section .profile-content .name {
+    font-size: 20px;
+  }
+
+  .leader-carousel-section .position {
+    font-size: 14px;
+  }
+
+  .leader-carousel-section .description {
+    font-size: 13px;
+  }
+}
