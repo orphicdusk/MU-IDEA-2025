@@ -1,6 +1,6 @@
 # MU IDEA 2025 - Event Website
 
-![MU IDEA Banner](/header-image.jpg)
+![MU IDEA Banner](public/header-image.jpg)
 
 **Innovate | Develop | Exhibit | Accelerate**
 
